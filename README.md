@@ -26,10 +26,27 @@ As referenced from the [Epicodus](https://epicodus.com) program's cirriculum:
 
 #### Project Specs:  
 
-**Describe:** \
-**Test:** \
-**Code:** 
+**Describe:** = $("input:radio[...]") value\
+**Test:** Allow user's selection in a radio button to be assigned to a string.\
+**Code:** `let pizzaSize = $("input:radio[name=` // name of the pizza-size value // `]:checked").val();`\
+**Expect:** If user selects 9" crust, then `let pizzaSize = 9`
 
+**Describe:** = $("input:checkbox[...]") value\
+**Test:** Allow user's selection(s) in a checkbox list to be assigned to an array.\
+**Code:**\
+`$("input:checkbox[` // name of the pizza protein group // `]:checked").each(function ()`\
+`let` temporary Protein String `= $(this).val();`\
+`pizzaProteinArray.push(` temporary Protein String`)`\
+**Expect:** If user selects Pepperoni, Anchovies, and Sausage, then `pizzaProteinArray = ["Pepperoni", "Anchovies", "Sausage"]`
+
+
+ $("input:checkbox[name=pizza-protein]:checked").each(function () {
+      let proteinChoice = 
+   
+
+
+$("input:checkbox[name=` // name of the pizza-size value // `]:checked").val();`\
+**Expect:** If user selects 9" crust, then `let pizzaSize = 9`
 
 
 -------------------------------
