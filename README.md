@@ -40,13 +40,7 @@ As referenced from the [Epicodus](https://epicodus.com) program's cirriculum:
 **Expect:** If user selects Pepperoni, Anchovies, and Sausage, then `pizzaProteinArray = ["Pepperoni", "Anchovies", "Sausage"]`
 
 
- $("input:checkbox[name=pizza-protein]:checked").each(function () {
-      let proteinChoice = 
-   
 
-
-$("input:checkbox[name=` // name of the pizza-size value // `]:checked").val();`\
-**Expect:** If user selects 9" crust, then `let pizzaSize = 9`
 
 
 -------------------------------
