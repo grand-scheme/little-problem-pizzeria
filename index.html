@@ -7,52 +7,79 @@
   <script src="js/jquery-3.5.1.js"></script>
   <script src="js/scripts.js"></script>
   <title>
-    [ TITLE ]
+    Little Problem Pizzaria
   </title>
 </head>
 <body>
   <div class="container">
     <div class="jumbotron">
       <h2>
-        [ PAGE HEADER ]
+        Welcome :)
       </h2>
     </div>
     <form id="build-a-pizza">
-      <div class="form-group">
+      <div class="form-group" id="q-size"> 
         <p>
-          [ QUESTION ONE ] 
+          Choose a size:
         </p>
-        <input class="checkboxes" type="checkbox" name="[placeholder;;key one]" value="[placeholder;;value name"> [ PLACEHOLDER;; CHOICE NAME ] <br />
+        <input class="radio" type="radio" name="pizza-size" value="09" checked> small: 9" diameter <br />
+        <input class="radio" type="radio" name="pizza-size" value="12"> medium: 12" diameter <br />
+        <input class="radio" type="radio" name="pizza-size" value="18"> large: 18" diameter <br />
+        <input class="radio" type="radio" name="pizza-size" value="24"> disaster: 24" diameter <br />
       </div>
-      <div class="form-group">
+      <div class="form-group" id="q-crust">
         <p>
-          [ QUESTION TWO ] 
+          Choose a crust:
         </p>
-        <input class="checkboxes" type="checkbox" name="[placeholder;;key two]" value="[placeholder;;value name"> [ PLACEHOLDER;; CHOICE NAME ] <br />
+        <input class="radio" type="radio" name="pizza-crust" value="soft" checked> soft, doughy <br />
+        <input class="radio" type="radio" name="pizza-crust" value="crisp"> crisp, crunchy <br />
+        <input class="radio" type="radio" name="pizza-crust" value="cheese"> stuffed full of artisinal cheeses <br />
       </div>
-      <div class="form-group">
+      <div class="form-group" id="q-sauce">
         <p>
-          [ QUESTION THREE ] 
+          Choose a sauce:
         </p>
-        <input class="checkboxes" type="checkbox" name="[placeholder;;key THREE]" value="[placeholder;;value name"> [ PLACEHOLDER;; CHOICE NAME ] <br />
+        <input class="radio" type="radio" name="pizza-sauce" value="red" checked> traditional red sauce <br />
+        <input class="radio" type="radio" name="pizza-sauce" value="white"> specialty white sauce <br />
+        <input class="radio" type="radio" name="pizza-sauce" value="bbq"> barbecue <br />
+        <input class="radio" type="radio" name="pizza-sauce" value="ranch"> ranch dressing <br />
+        <input class="radio" type="radio" name="pizza-sauce" value="none-sauce"> absolutely no sauce whatsoever <br />
       </div>
-      <div class="form-group">
+      <div class="form-group" id="q-cheese">
         <p>
-          [ QUESTION FOUR ] 
+          Choose cheese:
         </p>
-        <input class="checkboxes" type="checkbox" name="[placeholder;;key FOUR]" value="[placeholder;;value name"> [ PLACEHOLDER;; CHOICE NAME ] <br />
+        <input class="radio" type="radio" name="pizza-cheese" value="reg-cheese" checked> traditional <br />
+        <input class="radio" type="radio" name="pizza-cheese" value="xtr-cheese"> extra, but traditional <br />
+        <input class="radio" type="radio" name="pizza-cheese" value="reg-queso"> substitute queso <br />
+        <input class="radio" type="radio" name="pizza-cheese" value="xtr-cheese"> extra queso <br />
+        <input class="radio" type="radio" name="pizza-cheese" value="none-cheese"> absolutely no cheese whatsoever <br />
       </div>
-      <div class="form-group">
+      <div class="form-group" id="q-meat">
         <p>
-          [ QUESTION FIVE ] 
+          Select meat and/or protein toppings:
         </p>
-        <input class="checkboxes" type="checkbox" name="[placeholder;;key FIVE]" value="[placeholder;;value name"> [ PLACEHOLDER;; CHOICE NAME ] <br />
+        <input class="checkboxes" type="checkbox" name="pizza-protein" value="pep"> pepperoni <br />
+        <input class="checkboxes" type="checkbox" name="pizza-protein" value="saus"> sausage <br />
+        <input class="checkboxes" type="checkbox" name="pizza-protein" value="bcn"> bacon <br />
+        <input class="checkboxes" type="checkbox" name="pizza-protein" value="grchk"> grilled chicken <br />
+        <input class="checkboxes" type="checkbox" name="pizza-protein" value="jprw"> jumbo prawns <br />
+        <input class="checkboxes" type="checkbox" name="pizza-protein" value="anch"> anchovies <br />
+        <input class="checkboxes" type="checkbox" name="pizza-protein" value="krab"> imitation crab <br />
+        <input class="checkboxes" type="checkbox" name="pizza-protein" value="tofu"> tofu <br />
+        <input class="checkboxes" type="checkbox" name="pizza-protein" value="waln"> walnuts <br />
       </div>
-      <div class="form-group">
+      <div class="form-group" id="q-veggie">
         <p>
-          [ QUESTION SIX ] 
+          Select vegetables, fruit, and plant toppings:
         </p>
-        <input class="checkboxes" type="checkbox" name="[placeholder;;key SIX]" value="[placeholder;;value name"> [ PLACEHOLDER;; CHOICE NAME ] <br />
+        <input class="checkboxes" type="checkbox" name="pizza-veggie" value="dtom"> diced tomato <br />
+        <input class="checkboxes" type="checkbox" name="pizza-veggie" value="dappl"> diced apple <br />
+        <input class="checkboxes" type="checkbox" name="pizza-veggie" value="spinch"> spinach <br />
+        <input class="checkboxes" type="checkbox" name="pizza-veggie" value="blolv"> black olive <br />
+        <input class="checkboxes" type="checkbox" name="pizza-veggie" value="mush"> mushroom <br />
+        <input class="checkboxes" type="checkbox" name="pizza-veggie" value="celery"> celery <br />
+        <input class="checkboxes" type="checkbox" name="pizza-veggie" value="pinep"> pineapple <br />
       </div>
       <button type="submit" class="btn-warning" id="[BUTTON PLACEHOLDER NAME]"> 
         [ BUTTON TEXT ] 
