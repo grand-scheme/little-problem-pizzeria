@@ -158,3 +158,38 @@
   // }
 
   // so this works too. sweet!!! it goes into the main page.
+
+
+
+
+
+  function assemblePizza() {
+    let pizzaCart = new PizzaCart();
+    let pSize = $("input:radio[name=pizza-size]:checked").val();
+    let pCrust = $("input:radio[name=pizza-crust]:checked").val();
+    let pSauce = $("input:radio[name=pizza-sauce]:checked").val();
+    let pCheese = $("input:radio[name=pizza-cheese]:checked").val();
+
+    let pProtein = [];
+    $("input:checkbox[name=pizza-protein]:checked").each(function () {
+      let proteinChoice = $(this).val();
+      pProtein.push(proteinChoice);
+    });
+    
+    let pVeggie = [];
+    $("input:checkbox[name=pizza-veggie]:checked").each (function () {
+      let veggieChoice = $(this).val();
+      pVeggie.push(veggieChoice);
+    });
+  }
+  
+  $("button#add-pizza-btn").click(function() {
+  assemblePizza();
+  });
+
+  console.log(pSize);
+  console.log(pCrust);
+  console.log(pSauce);
+  console.log(pCheese);
+  console.log(pProtein);
+  console.log(pVeggie);

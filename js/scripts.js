@@ -50,8 +50,8 @@ pizzaCart
 // USER INTERFACE LOGIC //
 
 
-function assemblePizza() {
-  let pizzaCart = new PizzaCart();
+function assemblePizza(customerPizza) {
+  // let pizzaCart = new PizzaCart();
   let pSize = $("input:radio[name=pizza-size]:checked").val();
   let pCrust = $("input:radio[name=pizza-crust]:checked").val();
   let pSauce = $("input:radio[name=pizza-sauce]:checked").val();
@@ -68,7 +68,9 @@ function assemblePizza() {
     let veggieChoice = $(this).val();
     pVeggie.push(veggieChoice);
   });
-  let customerPizza = new Pizza(pSize, pCrust, pSauce, pCheese, pProtein, pVeggie);
+
+    customerPizza = new Pizza(pSize, pCrust, pSauce, pCheese, pProtein, pVeggie);
+    console.log(customerPizza);
 }
 
 
@@ -78,6 +80,9 @@ $(document).ready(function() {
     e.preventDefault();
   });
   $("button#add-pizza-btn").click(function() {
-    assemblePizza();
+    customerPizza = {};
+    console.log(customerPizza);
+    console.log("before assembly");
+    assemblePizza(customerPizza);
     });
 });
