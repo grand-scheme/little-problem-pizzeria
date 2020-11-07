@@ -5,13 +5,22 @@ function PizzaCart() {
 }
 
 PizzaCart.prototype.addPizza = function(pizza) {
-  pizza.id = this.idThisPizza(); 
+  pizza.pzID = this.idThisPizza(); 
   this.pizzaList.push(pizza);
 }
 
 PizzaCart.prototype.idThisPizza = function() {
   this.pizzaID += 1;
   return this.pizzaID;
+}
+
+PizzaCart.prototype.idThisPizza = function(pzID) {
+  for (let i=0; i< this.pizzaList.length; i++) {
+    if (this.pizzaList[i].pzID == pzID) {
+      return this.pizzaList[i];
+    }
+  };
+  return false;
 }
 
 // Build the PIZZA ---
