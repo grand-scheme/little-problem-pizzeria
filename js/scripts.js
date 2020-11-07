@@ -14,10 +14,22 @@ PizzaCart.prototype.idThisPizza = function() {
   return this.pizzaID;
 }
 
-PizzaCart.prototype.idThisPizza = function(pzID) {
+PizzaCart.prototype.locatePizza = function(pzID) {
   for (let i=0; i< this.pizzaList.length; i++) {
     if (this.pizzaList[i].pzID == pzID) {
       return this.pizzaList[i];
+    }
+  };
+  return false;
+}
+
+PizzaCart.prototype.destroyPizza = function(pzID) {
+  for (let i=0; i< this.pizzaList.length; i++) {
+    if (this.pizzaList[i]) {
+        if (this.pizzaList[i].pzID == pzID) {
+        delete this.pizzaList[i];
+        return true;
+      }
     }
   };
   return false;
@@ -33,30 +45,14 @@ function Pizza(size, crust, sauce, cheese, meat, veggie) {
   this.veggie = veggie;
 }
 
-
-
-// this stuff would be user interface stuff when we get there
-let pizzaCart = new PizzaCart();
-let pizza = new Pizza("big", "crunch", "red", "w", "pep", "olive");
-let pizza2 = new Pizza(1,2,3,4,5,6);
-pizzaCart.addPizza(pizza);
-pizzaCart.addPizza(pizza2);
-pizzaCart
-
-
-
-
-
 // USER INTERFACE LOGIC //
-
-
-function assemblePizza(customerPizza) {
+function assemblePizza() {
   // let pizzaCart = new PizzaCart();
   let pSize = $("input:radio[name=pizza-size]:checked").val();
   let pCrust = $("input:radio[name=pizza-crust]:checked").val();
   let pSauce = $("input:radio[name=pizza-sauce]:checked").val();
   let pCheese = $("input:radio[name=pizza-cheese]:checked").val();
-
+  
   let pProtein = [];
   $("input:checkbox[name=pizza-protein]:checked").each(function () {
     let proteinChoice = $(this).val();
@@ -68,21 +64,23 @@ function assemblePizza(customerPizza) {
     let veggieChoice = $(this).val();
     pVeggie.push(veggieChoice);
   });
-
-    customerPizza = new Pizza(pSize, pCrust, pSauce, pCheese, pProtein, pVeggie);
-    console.log(customerPizza);
+  
+  customerPizza = new Pizza(pSize, pCrust, pSauce, pCheese, pProtein, pVeggie);
 }
 
 
 
 $(document).ready(function() {
+  let pizzaCart = new PizzaCart();
+  
   $("form#build-a-pizza").submit(function(e) {
     e.preventDefault();
   });
+  
   $("button#add-pizza-btn").click(function() {
     customerPizza = {};
-    console.log(customerPizza);
-    console.log("before assembly");
-    assemblePizza(customerPizza);
+    assemblePizza();
+    pizzaCart.addPizza(customerPizza);
+    console.log(pizzaCart);
     });
 });
