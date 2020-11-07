@@ -1,11 +1,11 @@
-// PizzaCart Code --- //
-function PizzaCart() {
-  this.pizzaList = [];
-}
+// // PizzaCart Code --- //
+// function PizzaCart() {
+//   this.pizzaList = [];
+// }
 
-PizzaCart.prototype.addPizza = function(pizza) {
-  this.pizzaList.push(pizza);
-}
+// PizzaCart.prototype.addPizza = function(pizza) {
+//   this.pizzaList.push(pizza);
+// }
 
 // Pizza Code --- //
 // function Pizza(size, crust, sauce, cheese, meat, veggie) {
@@ -180,7 +180,7 @@ $(document).ready(function() {
     });
 
     let customerPizza = new Pizza(pSize, pCrust, pSauce, pCheese, pProtein, pVeggie)
-    pizzaList.prototype.addPizza(customerPizza);
+    pizzaList.addPizza(customerPizza);
     console.log(pizzaList)
   });
 })
