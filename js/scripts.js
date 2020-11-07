@@ -1,19 +1,13 @@
-// 
+// PizzaCart Code --- //
 function PizzaCart() {
   this.pizzaList = [];
-  this.pizzaID = 0;
 }
 
 PizzaCart.prototype.addPizza = function(pizza) {
-  pizza.id = this.idThePizza();
   this.pizzaList.push(pizza);
 }
 
-PizzaCart.prototype.idThePizza = function() {
-  this.pizzaID += 1;
-  return this.pizzaID;
-}
-
+// Pizza Code --- //
 function Pizza(size, crust, sauce, cheese, meat, veggie) {
   this.size = size;
   this.crust = crust;
@@ -23,6 +17,7 @@ function Pizza(size, crust, sauce, cheese, meat, veggie) {
   this.veggie = veggie;
 }
 
+// 
 
 // Document Ready:
 $(document).ready(function() {
@@ -31,7 +26,7 @@ $(document).ready(function() {
   })
 
   $("button#add-pizza-btn").click(function() {
-    let pizzaList = [];
+    let pizzaCart = new PizzaCart();
     let pSize = $("input:radio[name=pizza-size]:checked").val();
     let pCrust = $("input:radio[name=pizza-crust]:checked").val();
     let pSauce = $("input:radio[name=pizza-sauce]:checked").val();
@@ -50,9 +45,8 @@ $(document).ready(function() {
       pVeggie.push(veggieChoice);
     });
 
-    let customerPizza = new Pizza(pSize, pCrust, pSauce, pCheese, pProtein, pVeggie)
-    pizzaList.push(customerPizza);
-    console.log(pizzaList)
+    let customerPizza = new Pizza(pSize, pCrust, pSauce, pCheese, pProtein, pVeggie);
+    pizzaCart.addPizza(customerPizza);
+    console.log(pizzaCart);
   });
 })
-
