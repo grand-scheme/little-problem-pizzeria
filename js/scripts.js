@@ -36,13 +36,14 @@ PizzaCart.prototype.destroyPizza = function(pzID) {
 }
 
 // Build the PIZZA ---
-function Pizza(size, crust, sauce, cheese, meat, veggie) {
+function Pizza(size, crust, sauce, cheese, meat, veggie, cost) {
   this.size = size;
   this.crust = crust;
   this.sauce = sauce;
   this.cheese = cheese;
   this.meat = meat;
   this.veggie = veggie;
+  this.cost = (this.size * .90 ) + (this.meat.length -1) + ((this.veggie.length -1) * 0.75);
 }
 
 // USER INTERFACE LOGIC //
@@ -65,7 +66,9 @@ function assemblePizza() {
     pVeggie.push(veggieChoice);
   });
   
-  customerPizza = new Pizza(pSize, pCrust, pSauce, pCheese, pProtein, pVeggie);
+  let pCost = 0;
+
+  customerPizza = new Pizza(pSize, pCrust, pSauce, pCheese, pProtein, pVeggie, pCost);
 }
 
 
