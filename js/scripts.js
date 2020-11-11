@@ -84,14 +84,23 @@ function displayPizza(pizzaToDisplay) {
   let cartedPizza = $("ul#show-pizza-cart");
   let pizzaHTML = "";
   pizzaToDisplay.pizzaList.forEach(function(pizza) {
+    if (pizza.meat.length === 0) {
+      pizza.meat.push(`no protein`)
+    }
     pizzaHTML += `<li id="${pizza.pzID}"> One ${pizza.size}" ${pizza.cheese} & ${pizza.sauce} pizza with ${pizza.meat[0]} and ${(pizza.meat.length -1) + (pizza.veggie.length)} other toppings. </li>`
   });
   cartedPizza.html(pizzaHTML);
 }
 
+function contactListeners() {
+  $("ul#show-pizza-cart").on("click", "li", function() {
+    console.log(this.id);
+  });
+}
 
 $(document).ready(function() {
   let pizzaCart = new PizzaCart();
+  contactListeners();
   
   $("form#build-a-pizza").submit(function(e) {
     e.preventDefault();
@@ -102,6 +111,5 @@ $(document).ready(function() {
     assemblePizza();
     pizzaCart.addPizza(customerPizza);
     displayPizza(pizzaCart);
-    console.log(pizzaCart);
     });
 });
