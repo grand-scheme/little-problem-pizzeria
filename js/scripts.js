@@ -16,8 +16,10 @@ PizzaCart.prototype.idThisPizza = function() {
 
 PizzaCart.prototype.locatePizza = function(pzID) {
   for (let i=0; i< this.pizzaList.length; i++) {
-    if (this.pizzaList[i].pzID == pzID) {
-      return this.pizzaList[i];
+    if (this.pizzaList[i]) {
+      if (this.pizzaList[i].pzID == pzID) {
+        return this.pizzaList[i];
+      }
     }
   };
   return false;
@@ -43,12 +45,19 @@ function Pizza(size, crust, sauce, cheese, meat, veggie, cost) {
   this.cheese = cheese;
   this.meat = meat;
   this.veggie = veggie;
-  this.cost = (this.size * .90 ) + (this.meat.length -1) + ((this.veggie.length -1) * 0.75);
+  this.cost = (this.size * .90 ) + (this.meat.length) + (this.veggie.length * 0.75);
+}
+
+Pizza.prototype.orderReturn = function() {
+  return `Your pizza:
+  ${this.size}" crust
+  Made with ${this.sauce} and ${this.cheese}
+  Topped with ${this.meat}, and ${this.veggie}.
+  Your total comes to $\${this.cost}`
 }
 
 // USER INTERFACE LOGIC //
 function assemblePizza() {
-  // let pizzaCart = new PizzaCart();
   let pSize = $("input:radio[name=pizza-size]:checked").val();
   let pCrust = $("input:radio[name=pizza-crust]:checked").val();
   let pSauce = $("input:radio[name=pizza-sauce]:checked").val();
@@ -71,6 +80,14 @@ function assemblePizza() {
   customerPizza = new Pizza(pSize, pCrust, pSauce, pCheese, pProtein, pVeggie, pCost);
 }
 
+function displayPizza(pizzaToDisplay) {
+  let cartedPizza = $("ul#show-pizza-cart");
+  let pizzaHTML = "";
+  pizzaToDisplay.pizzaList.forEach(function(pizza) {
+    pizzaHTML += `<li id="${pizza.pzID}"> One ${pizza.size}" ${pizza.cheese} & ${pizza.sauce} pizza with ${pizza.meat[0]} and ${(pizza.meat.length -1) + (pizza.veggie.length)} other toppings. </li>`
+  });
+  cartedPizza.html(pizzaHTML);
+}
 
 
 $(document).ready(function() {
@@ -84,6 +101,7 @@ $(document).ready(function() {
     customerPizza = {};
     assemblePizza();
     pizzaCart.addPizza(customerPizza);
+    displayPizza(pizzaCart);
     console.log(pizzaCart);
     });
 });
