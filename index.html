@@ -84,8 +84,8 @@
       <button type="submit" class="btn-warning" id="add-pizza-btn"> 
         Add Pizza 
       </button>
-      <button type="button" id="[SECOND BUTTON PLACEHOLDER NAME]"> 
-        [ BUTTON TEXT ]
+      <button type="button" class="btn-danger" id="reset-pizza-btn"> 
+        Reset Current Pizza 
       </button>
     </form>
   </div>
@@ -98,11 +98,14 @@
 
   <div id="show-pizza-details">
     <p>Your pizza:
-      <br /> <span class="order-crust"></span>" crust
-      <br /> Made with <span class="order-sauce"></span> and <span class="order-cheese"></span>
+      <br /> <span class="order-size"></span>" diameter pizza with a <span class="order-crust"></span> crust,
+      <br /> Made with <span class="order-sauce"></span> and <span class="order-cheese"></span>,
       <br /> Topped with <span class="order-meat"></span> for protein, 
       <br /> and <span class="order-veggie"></span> for other toppings.
       <br /> Your total comes to $ <span class="order-cost"></span>.
     </p>
+    <div id="removal-button">
+    </div>
+  </div>
 </body>
 </html>
