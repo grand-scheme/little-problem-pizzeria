@@ -1,7 +1,7 @@
 // Build the PIZZACART ---
 function PizzaCart() {
   this.pizzaList = [];
-  this.pizzaID = 0;
+  this.pizzaID = 700;
 }
 
 PizzaCart.prototype.addPizza = function(pizza) {
@@ -50,13 +50,24 @@ function Pizza(size, crust, sauce, cheese, meat, veggie, cost) {
 
 Pizza.prototype.orderReturn = function() {
   return `Your pizza:
-  ${this.size}" crust
+  ${this.size}" ${this.crust} crust
   Made with ${this.sauce} and ${this.cheese}
   Topped with ${this.meat}, and ${this.veggie}.
   Your total comes to $\${this.cost}`
 }
 
 // USER INTERFACE LOGIC //
+let pizzaCart = new PizzaCart();
+
+function resetMenu() {
+  $("input[type=radio]").prop("checked", function () {
+    return this.getAttribute("checked") == "";
+  });
+  $("input[type=checkbox]").prop("checked", function () {
+    return this.getAttribute("checked") == "";
+  });
+}
+
 function assemblePizza() {
   let pSize = $("input:radio[name=pizza-size]:checked").val();
   let pCrust = $("input:radio[name=pizza-crust]:checked").val();
@@ -79,6 +90,7 @@ function assemblePizza() {
 
   customerPizza = new Pizza(pSize, pCrust, pSauce, pCheese, pProtein, pVeggie, pCost);
 }
+// => customerPizza
 
 function displayPizza(pizzaToDisplay) {
   let cartedPizza = $("ul#show-pizza-cart");
@@ -87,20 +99,41 @@ function displayPizza(pizzaToDisplay) {
     if (pizza.meat.length === 0) {
       pizza.meat.push(`no protein`)
     }
-    pizzaHTML += `<li id="${pizza.pzID}"> One ${pizza.size}" ${pizza.cheese} & ${pizza.sauce} pizza with ${pizza.meat[0]} and ${(pizza.meat.length -1) + (pizza.veggie.length)} other toppings. </li>`
+    pizzaHTML += `<li id="${pizza.pzID}"> One ${pizza.size}" ${pizza.cheese} & ${pizza.sauce} pizza with a ${pizza.crust} crust, topped with ${pizza.meat[0]} and ${(pizza.meat.length -1) + (pizza.veggie.length)} other toppings. </li>`
   });
   cartedPizza.html(pizzaHTML);
 }
 
-function contactListeners() {
+function revealPizzaDetails(number) {
+  const pizza = pizzaCart.locatePizza(number);
+  $("#show-pizza-details").show();
+  // console.log(pizza);
+  $(".order-size").html(pizza.size);
+  $(".order-crust").html(pizza.crust);
+  $(".order-sauce").html(pizza.sauce);
+  $(".order-cheese").html(pizza.cheese);
+  $(".order-meat").html(pizza.meat);
+  $(".order-veggie").html(pizza.veggie);
+  $(".order-cost").html(pizza.cost);
+  let deletePizza = $("#removal-button");
+  deletePizza.empty();
+  deletePizza.append(`<button class="delete-button" id="${pizza.pzID}">Remove Pizza</button>`);
+}
+
+function listeners() {
   $("ul#show-pizza-cart").on("click", "li", function() {
-    console.log(this.id);
+    revealPizzaDetails(this.id);
+    });
+  
+    $("#removal-button").on("click", ".delete-button", function() {
+    pizzaCart.destroyPizza(this.pzID);
+    $("#show-pizza-details").hide();
+    displayPizza(pizzaCart);
   });
 }
 
 $(document).ready(function() {
-  let pizzaCart = new PizzaCart();
-  contactListeners();
+  listeners();
   
   $("form#build-a-pizza").submit(function(e) {
     e.preventDefault();
@@ -111,5 +144,10 @@ $(document).ready(function() {
     assemblePizza();
     pizzaCart.addPizza(customerPizza);
     displayPizza(pizzaCart);
-    });
+  });
+  
+  $("button#reset-pizza-btn").click(function() {
+    resetMenu();
+  });
+
 });
