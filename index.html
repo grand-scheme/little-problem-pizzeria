@@ -31,7 +31,6 @@
           <label><input class="radio" type="radio" name="pizza-size" value="12"> medium: 12" diameter </label><br />
           <label><input class="radio" type="radio" name="pizza-size" value="18"> large: 18" diameter </label><br />
           <label><input class="radio" type="radio" name="pizza-size" value="24"> disaster: 24" diameter </label><br />
-        
         </div>
         <div class="card" id="q-crust">
           <h4>
@@ -90,32 +89,33 @@
           <label><input class="checkboxes" type="checkbox" name="pizza-veggie" value="pineapple"> pineapple </label><br />
         </div>
       </div>
-      <div class="row">
-        <div id="btn-row">
-          <button type="submit" class="btn-info" id="add-pizza-btn"> 
-            Add Pizza 
-          </button>
-          <button type="button" class="btn-dark" id="reset-pizza-btn"> 
-            Reset Current Pizza 
-          </button>
-        </div>
-      </div>        
-    </form>
-    <div class="jumbotron">
-      <h3> Your order so far: </h3>
-      <ul id="show-pizza-cart"></ul>
-      <div id="show-pizza-details">
-        <h4>Selected pizza - Order #<span class="order-number"></span>:</h4>
+      <div class="jumbotron" id="bottom">
+        <div class="row">
+          <div id="btn-row">
+            <button type="submit" class="btn-light" id="add-pizza-btn"> 
+              Add Pizza 
+            </button>
+            <button type="button" class="btn-dark" id="reset-pizza-btn"> 
+              Reset Current Pizza 
+            </button>
+          </div>
+        </div>        
+        <h3> Your order so far: </h3>
+        <ul id="show-pizza-cart"></ul>
+        <div id="show-pizza-details">
+          <h4>Selected pizza - Order #<span class="order-number"></span>:</h4>
           <div class="container">
             <p><span class="order-size"></span>" diameter pizza with <span class="order-crust"></span> crust. 
-            Made with <span class="order-sauce"></span> and <span class="order-cheese"></span>,
-            topped with <span class="order-meat"></span>, 
-            and <span class="order-veggie"></span>.
-            <br /> This selection comes to $<span class="order-cost"></span>.</p>
+              Made with <span class="order-sauce"></span> and <span class="order-cheese"></span>,
+              topped with <span class="order-meat"></span>, 
+              and <span class="order-veggie"></span>.
+              <br /> This selection comes to $<span class="order-cost"></span>.
+            </p>
             <div id="removal-button"></div>
           </div>
+        </div>
       </div>
-    </div>
+    </form>
   </div>
 </body>
 </html>

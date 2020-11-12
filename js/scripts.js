@@ -113,7 +113,7 @@ function revealPizzaDetails(number) {
   $(".order-cost").html(pizza.cost.toFixed(2));
   let deletePizza = $("#removal-button");
   deletePizza.empty();
-  deletePizza.append(`<button class="delete-button btn-danger" id="${pizza.pzID}">Remove Pizza</button>`);
+  deletePizza.append(`<button class="delete-button btn-light" id="${pizza.pzID}">Remove Pizza</button>`);
 }
 
 function listeners() {
