@@ -2,6 +2,7 @@
 <html lang="en-US">
 <head>
   <meta charset="UTF-8"></meta>
+  <meta name="robots" content="noindex"></meta>
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
   <link href="css/styles.css" rel="stylesheet" type="text/css">
   <script src="js/jquery-3.5.1.js"></script>
@@ -17,94 +18,105 @@
         Welcome :)
       </h2>
     </div>
-    <form id="build-a-pizza">
-      <div class="form-group" id="q-size"> 
-        <p>
-          Choose a size:
-        </p>
-        <input class="radio" type="radio" name="pizza-size" value="9" checked> small: 9" diameter <br />
-        <input class="radio" type="radio" name="pizza-size" value="12"> medium: 12" diameter <br />
-        <input class="radio" type="radio" name="pizza-size" value="18"> large: 18" diameter <br />
-        <input class="radio" type="radio" name="pizza-size" value="24"> disaster: 24" diameter <br />
-      </div>
-      <div class="form-group" id="q-crust">
-        <p>
-          Choose a crust:
-        </p>
-        <input class="radio" type="radio" name="pizza-crust" value="a soft, doughy" checked> soft, doughy <br />
-        <input class="radio" type="radio" name="pizza-crust" value="a crisp, crunchy"> crisp, crunchy <br />
-        <input class="radio" type="radio" name="pizza-crust" value="an artisinal cheese-stuffed"> stuffed full of artisinal cheeses <br />
-      </div>
-      <div class="form-group" id="q-sauce">
-        <p>
-          Choose a sauce:
-        </p>
-        <input class="radio" type="radio" name="pizza-sauce" value="traditional red sauce" checked> traditional red sauce <br />
-        <input class="radio" type="radio" name="pizza-sauce" value="specialty white sauce"> specialty white sauce <br />
-        <input class="radio" type="radio" name="pizza-sauce" value="homestyle barbecue"> homestyle barbecue <br />
-        <input class="radio" type="radio" name="pizza-sauce" value="ranch dressing"> ranch dressing <br />
-        <input class="radio" type="radio" name="pizza-sauce" value="no sauce"> absolutely no sauce whatsoever <br />
-      </div>
-      <div class="form-group" id="q-cheese">
-        <p>
-          Choose cheese:
-        </p>
-        <input class="radio" type="radio" name="pizza-cheese" value="traditional cheeses" checked> traditional-style cheese blend <br />
-        <input class="radio" type="radio" name="pizza-cheese" value="extra cheese"> extra, but traditional-style <br />
-        <input class="radio" type="radio" name="pizza-cheese" value="queso cheese sauce"> substitute queso <br />
-        <input class="radio" type="radio" name="pizza-cheese" value="extra queso"> extra queso <br />
-        <input class="radio" type="radio" name="pizza-cheese" value="no cheese topping"> absolutely no cheese whatsoever <br />
-      </div>
-      <div class="form-group" id="q-meat">
-        <p>
-          Select meat and/or protein toppings:
-        </p>
-        <input class="checkboxes" type="checkbox" name="pizza-protein" value="pepperoni"> pepperoni <br />
-        <input class="checkboxes" type="checkbox" name="pizza-protein" value="sausage"> sausage <br />
-        <input class="checkboxes" type="checkbox" name="pizza-protein" value="bacon"> bacon <br />
-        <input class="checkboxes" type="checkbox" name="pizza-protein" value="grilled chicken"> grilled chicken <br />
-        <input class="checkboxes" type="checkbox" name="pizza-protein" value="jumbo prawns"> jumbo prawns <br />
-        <input class="checkboxes" type="checkbox" name="pizza-protein" value="anchovies"> anchovies <br />
-        <input class="checkboxes" type="checkbox" name="pizza-protein" value="imitation crab"> imitation crab <br />
-        <input class="checkboxes" type="checkbox" name="pizza-protein" value="tofu"> tofu <br />
-        <input class="checkboxes" type="checkbox" name="pizza-protein" value="walnuts"> walnuts <br />
-      </div>
-      <div class="form-group" id="q-veggie">
-        <p>
-          Select vegetables, fruit, and plant toppings:
-        </p>
-        <input class="checkboxes" type="checkbox" name="pizza-veggie" value="diced tomato"> diced tomato <br />
-        <input class="checkboxes" type="checkbox" name="pizza-veggie" value="diced apple"> diced apple <br />
-        <input class="checkboxes" type="checkbox" name="pizza-veggie" value="spinach"> spinach <br />
-        <input class="checkboxes" type="checkbox" name="pizza-veggie" value="black olive"> black olive <br />
-        <input class="checkboxes" type="checkbox" name="pizza-veggie" value="mushroom"> mushroom <br />
-        <input class="checkboxes" type="checkbox" name="pizza-veggie" value="celery"> celery <br />
-        <input class="checkboxes" type="checkbox" name="pizza-veggie" value="pineapple"> pineapple <br />
-      </div>
-      <button type="submit" class="btn-warning" id="add-pizza-btn"> 
-        Add Pizza 
-      </button>
-      <button type="button" class="btn-danger" id="reset-pizza-btn"> 
-        Reset Current Pizza 
-      </button>
-    </form>
-  </div>
+      <form id="build-a-pizza">
+        <div class="row">
+          <div class="col-lg-3" id="q-size"> 
+            <h5>
+              Choose a size:
+            </h5>
+            <label><input class="radio" type="radio" name="pizza-size" value="9" checked> small: 9" diameter </label><br />
+            <label><input class="radio" type="radio" name="pizza-size" value="12"> medium: 12" diameter </label><br />
+            <label><input class="radio" type="radio" name="pizza-size" value="18"> large: 18" diameter </label><br />
+            <label><input class="radio" type="radio" name="pizza-size" value="24"> disaster: 24" diameter </label><br />
+          
+          </div>
+          <div class="col-lg-3" id="q-crust">
+            <h5>
+              Choose a crust:
+            </h5>
+            <label><input class="radio" type="radio" name="pizza-crust" value="a soft, doughy" checked> soft, doughy </label><br />
+            <label><input class="radio" type="radio" name="pizza-crust" value="a crisp, crunchy"> crisp, crunchy </label><br />
+            <label><input class="radio" type="radio" name="pizza-crust" value="an artisinal cheese-stuffed"> cheese-stuffed </label><br />
+          </div>
+          <div class="col-lg-3" id="q-sauce">
+            <h5>
+              Choose a sauce:
+            </h5>
+            <label><input class="radio" type="radio" name="pizza-sauce" value="traditional red sauce" checked> traditional red sauce </label><br />
+            <label><input class="radio" type="radio" name="pizza-sauce" value="specialty white sauce"> specialty white sauce </label><br />
+            <label><input class="radio" type="radio" name="pizza-sauce" value="homestyle barbecue"> homestyle barbecue </label><br />
+            <label><input class="radio" type="radio" name="pizza-sauce" value="ranch dressing"> ranch dressing </label><br />
+            <label><input class="radio" type="radio" name="pizza-sauce" value="no sauce"> absolutely no sauce </label><br />
+          </div>
+          <div class="col-lg-3" id="q-cheese">
+            <h5>
+              Choose cheese:
+            </h5>
+            <label><input class="radio" type="radio" name="pizza-cheese" value="traditional cheeses" checked> traditional blend </label><br />
+            <label><input class="radio" type="radio" name="pizza-cheese" value="extra cheese"> <em>extra</em> cheese </label><br />
+            <label><input class="radio" type="radio" name="pizza-cheese" value="queso cheese"> substitute queso </label><br />
+            <label><input class="radio" type="radio" name="pizza-cheese" value="extra queso"> <em>extra</em> queso </label><br />
+            <label><input class="radio" type="radio" name="pizza-cheese" value="no cheese topping"> absolutely no cheese </label><br />
+          </div>
+        </div>
+        <div class="row">
+          <!-- <div class="col-lg-1">&nbsp;</div> -->
+          <div class="col-lg-5" id="q-meat">
+            <h5>
+              Select meat and/or protein toppings:
+            </h5>
+            <label><input class="checkboxes" type="checkbox" name="pizza-protein" value="pepperoni"> pepperoni </label><br />
+            <label><input class="checkboxes" type="checkbox" name="pizza-protein" value="sausage"> sausage </label><br />
+            <label><input class="checkboxes" type="checkbox" name="pizza-protein" value="bacon"> bacon </label><br />
+            <label><input class="checkboxes" type="checkbox" name="pizza-protein" value="grilled chicken"> grilled chicken </label><br />
+            <label><input class="checkboxes" type="checkbox" name="pizza-protein" value="jumbo prawns"> jumbo prawns </label><br />
+            <label><input class="checkboxes" type="checkbox" name="pizza-protein" value="anchovies"> anchovies </label><br />
+            <label><input class="checkboxes" type="checkbox" name="pizza-protein" value="imitation crab"> imitation crab </label><br />
+            <label><input class="checkboxes" type="checkbox" name="pizza-protein" value="tofu"> tofu </label><br />
+            <label><input class="checkboxes" type="checkbox" name="pizza-protein" value="walnuts"> walnuts </label><br />
+          </div>
+          <div class="col-lg-1">&nbsp;</div>
+          <div class="col-lg-5" id="q-veggie">
+            <h5>
+              Select vegetables, fruit, and plant toppings:
+            </h5>
+            <label><input class="checkboxes" type="checkbox" name="pizza-veggie" value="diced tomato"> diced tomato </label><br />
+            <label><input class="checkboxes" type="checkbox" name="pizza-veggie" value="diced apple"> diced apple </label><br />
+            <label><input class="checkboxes" type="checkbox" name="pizza-veggie" value="spinach"> spinach </label><br />
+            <label><input class="checkboxes" type="checkbox" name="pizza-veggie" value="black olive"> black olive </label><br />
+            <label><input class="checkboxes" type="checkbox" name="pizza-veggie" value="mushroom"> mushroom </label><br />
+            <label><input class="checkboxes" type="checkbox" name="pizza-veggie" value="celery"> celery </label><br />
+            <label><input class="checkboxes" type="checkbox" name="pizza-veggie" value="pineapple"> pineapple </label><br />
+          </div>
+        </div>
+        <div class="row">
+          <!-- <div class="col-lg-1">&nbsp;</div> -->
+          <div class="col-lg-12" id="btn-row">
+            <button type="submit" class="btn-warning" id="add-pizza-btn"> 
+              Add Pizza 
+            </button>
+            <button type="button" class="btn-danger" id="reset-pizza-btn"> 
+              Reset Current Pizza 
+            </button>
+          </div>
+        </div>        
+      </form>
+    <h3>
+    Your order so far:
+    </h3>
+    <ul id="show-pizza-cart">
+    </ul>
 
-  <h2>
-    [TITLE]
-  </h2>
-  <ul id="show-pizza-cart">
-  </ul>
-
-  <div id="show-pizza-details">
-    <p>Your pizza - Order #<span class="order-number"></span>:
-      <br /> <span class="order-size"></span>" diameter pizza with <span class="order-crust"></span> crust,
-      <br /> Made with <span class="order-sauce"></span> and <span class="order-cheese"></span>,
-      <br /> Topped with <span class="order-meat"></span>, 
-      <br /> and <span class="order-veggie"></span>.
-      <br /> Your total comes to $ <span class="order-cost"></span>.
-    </p>
-    <div id="removal-button">
+    <div id="show-pizza-details">
+      <p>Your pizza - Order #<span class="order-number"></span>:
+        <br /> <span class="order-size"></span>" diameter pizza with <span class="order-crust"></span> crust,
+        <br /> Made with <span class="order-sauce"></span> and <span class="order-cheese"></span>,
+        <br /> Topped with <span class="order-meat"></span>, 
+        <br /> and <span class="order-veggie"></span>.
+        <br /> This selection comes to $ <span class="order-cost"></span>.
+      </p>
+      <div id="removal-button">
+      </div>
     </div>
   </div>
 </body>
