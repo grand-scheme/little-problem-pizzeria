@@ -38,7 +38,7 @@ PizzaCart.prototype.destroyPizza = function(pzID) {
 }
 
 // Build the PIZZA ---
-function Pizza(size, crust, sauce, cheese, meat, veggie, cost) {
+function Pizza(size, crust, sauce, cheese, meat, veggie) {
   this.size = size;
   this.crust = crust;
   this.sauce = sauce;
@@ -46,14 +46,6 @@ function Pizza(size, crust, sauce, cheese, meat, veggie, cost) {
   this.meat = meat;
   this.veggie = veggie;
   this.cost = (this.size * .90 ) + (this.meat.length) + (this.veggie.length * 0.75);
-}
-
-Pizza.prototype.orderReturn = function() {
-  return `Your pizza:
-  ${this.size}" ${this.crust} crust
-  Made with ${this.sauce} and ${this.cheese}
-  Topped with ${this.meat}, and ${this.veggie}.
-  Your total comes to $\${this.cost}`
 }
 
 // USER INTERFACE LOGIC //
@@ -106,14 +98,17 @@ function displayPizza(pizzaToDisplay) {
 
 function revealPizzaDetails(number) {
   const pizza = pizzaCart.locatePizza(number);
+  // toppingsToChain(pizza);
+  console.log(pizza);
+  // console.log(meatString);
   $("#show-pizza-details").show();
-  // console.log(pizza);
+
   $(".order-size").html(pizza.size);
   $(".order-crust").html(pizza.crust);
   $(".order-sauce").html(pizza.sauce);
   $(".order-cheese").html(pizza.cheese);
-  $(".order-meat").html(pizza.meat);
-  $(".order-veggie").html(pizza.veggie);
+  $(".order-meat").html(pizza.meat.join(", "));
+  $(".order-veggie").html(pizza.veggie.join(", "));
   $(".order-cost").html(pizza.cost.toFixed(2));
   let deletePizza = $("#removal-button");
   deletePizza.empty();
