@@ -1,6 +1,5 @@
 body {
-  background: #E6CCB3;
-  background-image: url(img/pizza.png);
+  background: rgba(230, 204, 179, 1);
   margin-bottom: 80px;
 }
 
@@ -8,8 +7,16 @@ h2, h3, h4 {
   color: #5FB7B0;
 }
 
-#show-pizza-details {
-  display: none;
+li {
+  line-height: 2.25rem;
+}
+
+li:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+label {
+  padding-left: 1.5rem;
 }
 
 .jumbotron {
@@ -26,19 +33,6 @@ h2, h3, h4 {
   margin-left: 1rem;
 }
 
-li {
-  line-height: 2.25rem;
-}
-
-li:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.row {
-  margin-bottom: 3.0rem;
-}
-
 .card {
   background: #32312F;
   color: #E6CCB3;
@@ -53,18 +47,23 @@ li:hover {
   padding: 10px 20px 5px;
 }
 
+.row {
+  margin-bottom: 3.0rem;
+}
+
+#show-pizza-details {
+  display: none;
+}
+
 #show-pizza-cart, #show-pizza-details {
   padding-left: 3rem;
 }
 
-label {
-  padding-left: 1.5rem;
-}
-
 #btn-row {
   text-align: left;
+  padding-left:0px;
 }
 
-.btn-danger, .btn-danger:hover {
-  color: #32312f;
+#bottom {
+  padding-top:0px; 
 }
