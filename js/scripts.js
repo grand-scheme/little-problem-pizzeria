@@ -99,7 +99,7 @@ function displayPizza(pizzaToDisplay) {
     if (pizza.meat.length === 0) {
       pizza.meat.push(`no protein`)
     }
-    pizzaHTML += `<li id="${pizza.pzID}"> One ${pizza.size}" ${pizza.cheese} & ${pizza.sauce} pizza with a ${pizza.crust} crust, topped with ${pizza.meat[0]} and ${(pizza.meat.length -1) + (pizza.veggie.length)} other toppings. </li>`
+    pizzaHTML += `<li id="${pizza.pzID}"> One ${pizza.size}" ${pizza.cheese} & ${pizza.sauce} pizza with a ${pizza.crust} crust, topped with ${pizza.meat[0]} and ${(pizza.meat.length -1) + (pizza.veggie.length)} other toppings. Total: $${pizza.cost.toFixed(2)}. </li>`
   });
   cartedPizza.html(pizzaHTML);
 }
@@ -114,7 +114,7 @@ function revealPizzaDetails(number) {
   $(".order-cheese").html(pizza.cheese);
   $(".order-meat").html(pizza.meat);
   $(".order-veggie").html(pizza.veggie);
-  $(".order-cost").html(pizza.cost);
+  $(".order-cost").html(pizza.cost.toFixed(2));
   let deletePizza = $("#removal-button");
   deletePizza.empty();
   deletePizza.append(`<button class="delete-button" id="${pizza.pzID}">Remove Pizza</button>`);
@@ -126,7 +126,7 @@ function listeners() {
     });
   
     $("#removal-button").on("click", ".delete-button", function() {
-    pizzaCart.destroyPizza(this.pzID);
+    pizzaCart.destroyPizza(this.id);
     $("#show-pizza-details").hide();
     displayPizza(pizzaCart);
   });
