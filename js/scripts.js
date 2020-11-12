@@ -91,18 +91,19 @@ function displayPizza(pizzaToDisplay) {
     if (pizza.meat.length === 0) {
       pizza.meat.push(`no protein`)
     }
-    pizzaHTML += `<li id="${pizza.pzID}"> One ${pizza.size}" ${pizza.cheese} & ${pizza.sauce} pizza with a ${pizza.crust} crust, topped with ${pizza.meat[0]} and ${(pizza.meat.length -1) + (pizza.veggie.length)} other toppings. Total: $${pizza.cost.toFixed(2)}. </li>`
+    pizzaHTML += `<li id="${pizza.pzID}"> One ${pizza.size}" pizza with ${pizza.meat[0]} and ${(pizza.meat.length -1) + (pizza.veggie.length)} other toppings. Total: $${pizza.cost.toFixed(2)}. </li>`
   });
   cartedPizza.html(pizzaHTML);
 }
 
 function revealPizzaDetails(number) {
   const pizza = pizzaCart.locatePizza(number);
-  // toppingsToChain(pizza);
-  console.log(pizza);
-  // console.log(meatString);
+  if (pizza.veggie.length === 0) {
+    pizza.veggie.push(`no other toppings`)
+  }
+  
   $("#show-pizza-details").show();
-
+  $(".order-number").html(pizza.pzID);
   $(".order-size").html(pizza.size);
   $(".order-crust").html(pizza.crust);
   $(".order-sauce").html(pizza.sauce);
@@ -119,7 +120,6 @@ function listeners() {
   $("ul#show-pizza-cart").on("click", "li", function() {
     revealPizzaDetails(this.id);
     });
-  
     $("#removal-button").on("click", ".delete-button", function() {
     pizzaCart.destroyPizza(this.id);
     $("#show-pizza-details").hide();
