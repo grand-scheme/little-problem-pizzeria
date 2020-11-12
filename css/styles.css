@@ -5,3 +5,35 @@ body {
 #show-pizza-details {
   display: none;
 }
+
+.jumbotron {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 2.5rem;
+}
+
+li {
+  line-height: 2.25rem;
+}
+
+li:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.row {
+  margin-bottom: 3.0rem;
+}
+
+#btn-row {
+  margin: auto;
+  text-align: left;
+}
+
+ul, ol {
+  padding-left: 3rem;
+}
+
+label {
+  padding-left: 1.5rem;
+}
